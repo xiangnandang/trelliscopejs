@@ -31,7 +31,7 @@ widget_thumbnail <- function(p, thumb_path, width, height, delay = 0.5) {
     p$sizingPolicy$padding <- 0 # nolint
     suppressMessages(htmlwidgets::saveWidget(p, ff, selfcontained = FALSE))
 
-    webshot::webshot(paste0("file://", ff), thumb_path, vwidth = width, vheight = height,
+    webshot::webshot(ff, thumb_path, vwidth = width, vheight = height,
       delay = delay)
   }, silent = TRUE)
   if (!inherits(res, "try-error")) {
